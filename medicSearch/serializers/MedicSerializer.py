@@ -4,4 +4,4 @@ from medicSearch.models import Profile
 class MedicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = '__all__'
+        fields = ['id','birthday','token','image','user','specialities','addresses']
