@@ -4,3 +4,4 @@ from .MedicSerializer import *
 from .CitySerializer import *
 from .SpecialitiesSerializer import *
 from .StateSerializer import *
+from .NeighborhoodSerializer import *

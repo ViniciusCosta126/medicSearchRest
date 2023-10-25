@@ -4,3 +4,4 @@ from .AddressesView import *
 from .CitysView import *
 from .SpecialityView import *
 from .StateView import *
+from .NeighborhoodView import *
