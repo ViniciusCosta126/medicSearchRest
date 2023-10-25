@@ -4,6 +4,7 @@ from medicSearch.serializers import MedicSerializer
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
+import django_filters
 
 
 class MedicPagination(PageNumberPagination):
@@ -12,11 +13,26 @@ class MedicPagination(PageNumberPagination):
     max_page_size = 10
 
 
+class MedicFilter(django_filters.FilterSet):
+    # Renomeie os campos que deseja usar para filtrar
+    specialty = django_filters.CharFilter(
+        field_name='specialities__id', lookup_expr='iexact')
+    neighborhood = django_filters.CharFilter(
+        field_name='addresses__neighborhood', lookup_expr='iexact')
+    city = django_filters.CharFilter(
+        field_name='addresses__neighborhood__city',)
+    state = django_filters.CharFilter(
+        field_name='addresses__neighborhood__city__state',)
+
+    class Meta:
+        model = Profile
+        fields = []
+
+
 class MedicViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.filter(role=2)
     serializer_class = MedicSerializer
     pagination_class = MedicPagination
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     search_fields = ['user__first_name']
-    filterset_fields = ['specialities__id', 'addresses__neighborhood',
-                        'addresses__neighborhood__city', 'addresses__neighborhood__city__state']
+    filterset_class = MedicFilter
