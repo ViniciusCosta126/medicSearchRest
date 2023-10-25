@@ -5,3 +5,4 @@ from .CitysView import *
 from .SpecialityView import *
 from .StateView import *
 from .NeighborhoodView import *
+from .DayWeekView import *

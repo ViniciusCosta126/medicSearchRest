@@ -5,3 +5,4 @@ from .CitySerializer import *
 from .SpecialitiesSerializer import *
 from .StateSerializer import *
 from .NeighborhoodSerializer import *
+from .DayWeekSerializer import *
