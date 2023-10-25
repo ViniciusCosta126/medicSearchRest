@@ -3,7 +3,7 @@ from medicSearch.models import *
 
 class City(models.Model):
     state = models.ForeignKey(
-        State, null=True, related_name='stat', on_delete=models.SET_NULL)
+        State, null=True, related_name='state', on_delete=models.SET_NULL)
     name = models.CharField(null=False, max_length=30)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
