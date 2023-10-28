@@ -6,3 +6,4 @@ from .SpecialityView import *
 from .StateView import *
 from .NeighborhoodView import *
 from .DayWeekView import *
+from .AuthView import *
